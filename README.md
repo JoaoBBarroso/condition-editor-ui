@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+# Condition Editor UI – Guided Tour & Development Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Guided Tour
 
-Currently, two official plugins are available:
+This project is a React + TypeScript application bootstrapped with Vite. It implements a condition editor UI, allowing users to filter and view data using a flexible, composable interface. The codebase is organized for clarity and scalability, with a focus on modularity and testability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+- **Filter Bar**: Located in `src/components/FilterBar/`, this is the main UI for building filter conditions. It includes:
+  - `OperatorSelect.tsx`: Dropdown for selecting filter operators.
+  - `PropertySelect.tsx`: Dropdown for selecting which property to filter on.
+  - `ValueInput.tsx`: Input for entering filter values.
+- **Product Table**: In `src/components/ProductTable.tsx`, displays filtered data in a tabular format.
+- **State Management**: Uses simple store modules in `src/store/` for managing filter and data state.
+- **Utilities**: Filtering logic and type definitions are in `src/lib/`.
+- **Testing**: Tests are in `src/__tests__/`, using Vitest and React Testing Library.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Run & Test
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Install dependencies: `npm install`
+2. Start the dev server: `npm run dev`
+3. Run tests: `npx vitest run` or use the VS Code task "Run Vitest"
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Development Process Notes
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Initial Setup**: Started with Vite's React + TypeScript template for fast iteration and HMR.
+- **Component Design**: Broke down the UI into small, reusable components for maintainability.
+- **State Management**: Chose a simple custom store pattern for state, avoiding external dependencies for this scale.
+- **Testing**: Wrote unit and integration tests for key components and logic.
+- **Linting & Formatting**: Used ESLint and Prettier for code quality and consistency.
+- **Iteration**: Built the filter logic first, then UI, then tests, iterating as needed.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Time Spent
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Estimated total time: **6 hours**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Project setup & planning: ~0.5h
+- Component & store implementation: ~3h
+- Testing: ~1.5h
+- Debugging, polish, and documentation: ~1h
+
+## Assumptions Made
+
+- The data to be filtered is static and provided in `src/store/data/mockData.ts`.
+- Only basic filter operations (equality, contains, etc.) are required.
+- No backend/API integration is needed for this exercise.
+- UI/UX should be clean but minimal, focusing on functionality over design polish.
+- The code should be easy to extend for more complex filter logic or data sources.

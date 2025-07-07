@@ -21,6 +21,7 @@ export const filterProducts = (
     const propVal = product.property_values.find(
       (pv) => pv.property_id === property.id,
     )?.value;
+    
     switch (filter.operatorId) {
       case "equals":
         return propVal === filter.value;
@@ -41,9 +42,12 @@ export const filterProducts = (
       case "none":
         return propVal === undefined || propVal === null || propVal === "";
       case "in":
-        if (Array.isArray(filter.value)) {
-          // propVal can be string or number, filter.value is string[] or number[]
-          return filter.value.some((v) => v === propVal);
+        if (typeof filter.value === "string") {
+          const values = filter.value
+            .split(",")
+            .map((v) => v.trim())
+            .filter(Boolean);
+          return values.some((v) => String(v) === String(propVal));
         }
         return false;
       case "contains":

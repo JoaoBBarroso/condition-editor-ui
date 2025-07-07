@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Filter } from "../lib/types";
+import type { Filter } from "@/lib/types";
 
 export interface FilterState {
   filter: Filter;
