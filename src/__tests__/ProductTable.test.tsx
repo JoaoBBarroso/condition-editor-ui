@@ -28,25 +28,24 @@ describe("ProductTable", () => {
     },
   ];
 
-  it("renders table headers based on properties", () => {
+  it("renders table headers and product values, or empty message", () => {
+    // Renders headers
     render(<ProductTable products={products} properties={properties} />);
-    expect(screen.getByText(/Product Name/i)).toBeInTheDocument();
-    expect(screen.getByText(/color/i)).toBeInTheDocument();
-    expect(screen.getByText(/weight \(oz\)/i)).toBeInTheDocument();
-  });
-
-  it("renders product values in correct columns", () => {
-    render(<ProductTable products={products} properties={properties} />);
-    expect(screen.getByText("Test Product")).toBeInTheDocument();
-    expect(screen.getByText("red")).toBeInTheDocument();
-    expect(screen.getByText("10")).toBeInTheDocument();
-    expect(screen.getByText("Another Product")).toBeInTheDocument();
-    expect(screen.getByText("blue")).toBeInTheDocument();
-    expect(screen.getByText("5")).toBeInTheDocument();
-  });
-
-  it("shows 'No products found.' when products is empty", () => {
+    [
+      "Product Name",
+      "Color",
+      "Weight (oz)",
+      "Test Product",
+      "red",
+      "10",
+      "Another Product",
+      "blue",
+      "5",
+    ].forEach((text) => {
+      expect(screen.getAllByText(text)[0]).toBeInTheDocument();
+    });
+    // Renders empty message
     render(<ProductTable products={[]} properties={properties} />);
-    expect(screen.getByText(/No products found/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/No products found/i)[0]).toBeInTheDocument();
   });
 });

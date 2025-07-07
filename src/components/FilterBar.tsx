@@ -142,7 +142,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   };
 
   return (
-    <div className="flex min-w-3xl flex-wrap items-end gap-4 p-4 bg-[#23262f] text-white rounded border border-gray-700 shadow mb-6">
+    <div className="flex justify-between flex-wrap items-end gap-4 p-2 bg-[#23262f] text-white rounded-xl  border border-gray-700 mb-6">
       <div>
         <Select
           value={filter.propertyId !== null ? String(filter.propertyId) : ""}

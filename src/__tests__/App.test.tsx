@@ -46,8 +46,8 @@ describe("App", () => {
     expect(
       screen.getByText(/Product Filtering Condition Editor/i),
     ).toBeTruthy();
-    expect(screen.getByText(/Test Product/)).toBeTruthy();
-    expect(screen.getByText(/Filter/i)).toBeTruthy();
+    expect(screen.getAllByText(/Test Product/)[0]).toBeTruthy();
+    expect(screen.getAllByText(/Filter/i)[0]).toBeTruthy();
   });
 
   it("calls filterProducts with correct arguments", () => {

@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="min-h-screen w-full bg-[#181a20] flex flex-col items-center py-10">
-      <div className="flex flex-col justify-center items-center w-full">
+      <div className="flex flex-col justify-center items-center w-full p-4">
         <h1 className="text-2xl font-bold mb-6 text-center text-white drop-shadow-lg">
           Product Filtering Condition Editor
         </h1>
