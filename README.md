@@ -1,5 +1,16 @@
 # Condition Editor UI – Guided Tour & Development Notes
 
+## Table of Contents
+
+- [Guided Tour](#guided-tour)
+- [Folder Structure](#folder-structure)
+- [Key Features](#key-features)
+- [How to Run & Test](#how-to-run--test)
+- [Development Notes](#development-notes)
+- [Time Spent](#time-spent)
+- [Assumptions Made](#assumptions-made)
+- [Possible Future Improvements](#possible-future-improvements)
+
 # Guided Tour
 
 For this project I've decided to create a React + TypeScript application bootstrapped with Vite, using Zustand for global state management and Vitest + react-testing-library for unit testing. It implements a condition editor UI, allowing users to filter and view data using a flexible, composable interface. The codebase is organized for clarity and scalability, with a focus on modularity and testability.
