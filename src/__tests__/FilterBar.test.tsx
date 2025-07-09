@@ -59,6 +59,9 @@ describe("FilterBar", () => {
   });
 });
 
+// For this tests, the explanation as to why I created diferent it actions is on README.md
+// This is to ensure that the user can select a property, then an operator, and finally
+// that the correct input is rendered based on the property and operator combination.
 describe("FilterBar", () => {
   const user = userEvent.setup();
   it("selects a property correctly", async () => {

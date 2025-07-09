@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { filterProducts } from "./lib/filterUtils";
+import { filterProducts } from "@/lib/filterUtils";
 import { FilterBar } from "@/components/FilterBar";
 import { ProductTable } from "@/components/ProductTable";
 import { useFilterStore } from "@/store/filterStore";
