@@ -86,7 +86,8 @@ Estimated total time: **7 hours**
 ## Possible Future Improvements
 
 - Regarding testing I would love to introduce playwright for E2E tests to possibly test more complex scenarios.
-- Still on testing regarding the test on the FilterBar.test.tsx from line 65 I would want it to be all together instead of separated but possibly because of state update problems I couldn't make the code run all together in the same it(). I believe this could be some small thing I can be overlooking I decided to not spend more time on this. A possible fix might be another/better way to setup/mock the zustand store.
+- Still on testing regarding the test on the `FilterBar.test.tsx` from line 65 I would want it to be all together instead of separated but possibly because of state update problems I couldn't make the code run all together in the same `it()`. I believe this could be some small thing I can be overlooking I decided to not spend more time on this. A possible fix might be another/better way to setup/mock the zustand store.
 - I dont know how often the list of products would update but we could consider adding TanStack Query for the API requests, benefiting from its out-of-the-box caching, automatic out-of-date updates and, if so, pagination optimizations and lazy loading data.
 - Would consider adding pagination of lists of products become too large.
 - As the application grows in size, would add utils/ and consts/ folders to better organize the code by feature/page/scenario.
+- Would consider revamping the structure of the project for a atomic or feature based folder design approach. Right now it might not make too much sense but would be very helpful even by just adding a second page and 2 or 3 other components. This would improve even more the projects' overall scalability and modularity.

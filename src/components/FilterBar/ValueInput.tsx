@@ -29,6 +29,8 @@ export const ValueInput: React.FC<ValueInputProps> = ({
     value: ValueType,
     setValue: (val: ValueType) => void,
   ) => {
+    // If the property is enumerated and has values, render a select input
+    // Otherwise, return null
     if (property.type === "enumerated" && property.values) {
       return (
         <Select

@@ -21,19 +21,26 @@ export const FilterBar: React.FC<FilterBarProps> = ({
     (state: FilterState) => state,
   );
 
+  // Memoize the selected property to avoid unnecessary recalculations
   const selectedProperty = useMemo(
     () => properties.find((p) => p.id === filter.propertyId),
     [properties, filter.propertyId],
   );
+
+  // Get valid operators based on the selected property type
+  // If no property is selected, default to an empty array
   const validOperatorIds = selectedProperty
     ? propertyTypeToOperators[selectedProperty.type]
     : [];
+
+  // Filter the operators to only include those that are valid for the selected property
+  // If no property is selected, validOperators will be an empty array
   const validOperators = operators.filter((op) =>
     validOperatorIds.includes(op.id),
   );
 
   return (
-    <div className="flex justify-between flex-wrap items-end gap-4 p-2 bg-[#23262f] text-white rounded-xl  border border-gray-700 mb-6">
+    <div className="flex w-full md:w-fit flex-col md:flex-row justify-between flex-wrap items-start gap-4 p-2 bg-[#23262f] text-white rounded-xl  border border-gray-700 mb-6">
       <div>
         <PropertySelect
           properties={properties}
