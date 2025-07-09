@@ -91,3 +91,4 @@ Estimated total time: **7 hours**
 - Would consider adding pagination of lists of products become too large.
 - As the application grows in size, would add utils/ and consts/ folders to better organize the code by feature/page/scenario.
 - Would consider revamping the structure of the project for a atomic or feature based folder design approach. Right now it might not make too much sense but would be very helpful even by just adding a second page and 2 or 3 other components. This would improve even more the projects' overall scalability and modularity.
+- Would move the `App.tsx` contents to, i.e., a `Home.tsx` component, making the `App.tsx` cleaner and that way if we need to add any providers or global components, the file would be better prepared for that.
