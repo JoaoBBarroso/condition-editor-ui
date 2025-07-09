@@ -55,7 +55,7 @@ For this project I've decided to create a React + TypeScript application bootstr
 
 1. Install dependencies: `npm install`
 2. Start the dev server: `npm run dev`
-3. Run tests: `npx vitest run` or use the VS Code task "Run Vitest"
+3. Run tests: `npx vitest run` or use `npm run test`
 
 ## Development Notes
 
